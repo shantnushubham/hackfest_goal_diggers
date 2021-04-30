@@ -13,6 +13,9 @@ const cors = require('cors');
 const User = require('./models/user')
 require('dotenv').config();
 const envData = process.env;
+const userRoutes=require('./routes/users')
+const indexRoutes=require('./routes/index')
+
 
 
 try {
@@ -63,7 +66,8 @@ app.use(function (req, res, next) {
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
+app.use(userRoutes)
+app.use(indexRoutes)
 app.get('/*', function (req, res) {
     res.send({success:true})
 });
