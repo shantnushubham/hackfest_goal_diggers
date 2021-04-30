@@ -1,0 +1,21 @@
+.phone-nav {
+  background-color: #6739b7 !important;
+}
+
+.navbar {
+  justify-content: flex-end;
+}
+
+.phone-nav-logo-box {
+  float: right;
+}
+
+.logo-image-box {
+  position: absolute;
+  left: 0;
+}
+
+.logo-image-box img.logo-img {
+  width: 50px;
+}
+
