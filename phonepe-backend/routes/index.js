@@ -9,7 +9,7 @@ const User = require('../models/user');
 const helpers = require('../helpers/index');
 
 router.get('/',async(req,res)=>{
-    res.send({success:true})
+    res.send({success:true,user:req.isAuthenticated()?req.user:{}})
 })
 
 module.exports=router

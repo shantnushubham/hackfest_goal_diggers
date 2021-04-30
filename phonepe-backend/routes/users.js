@@ -24,7 +24,7 @@ router.post('/login', passport.authenticate('local', {
     failureRedirect: '/',
     failureFlash: true
 }), (req, res) => {
-    res.status(401).send({success:false,message:'wrong ID or password'});
+    res.status(200).send({user:req.user})
 });
 
 router.get('/logout', function (req, res) {
