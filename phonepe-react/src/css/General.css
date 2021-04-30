@@ -1,0 +1,45 @@
+.section {
+  padding: 10px 15px;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 5px 15px 16px rgb(0, 0, 0, 0.08);
+}
+
+.action-text {
+  font-weight: 500;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.action-block {
+  text-align: center;
+}
+
+.action-block .icon-img-box {
+  cursor: pointer;
+  background-color: #6739b7;
+  border-radius: 15px;
+  width: 40px;
+  height: 40px;
+  padding: 10px 5px 0 5px;
+  margin: auto;
+}
+
+.icon-img-box > img {
+  width: 30px;
+}
+
+.action-block .action-mssg {
+  margin: 5px;
+  font-weight: 500;
+}
+
+.action-block .action-mssg:hover {
+  text-decoration: none;
+}
