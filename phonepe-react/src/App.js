@@ -62,7 +62,10 @@ const App = () => {
               path={"/login"}
               component={() => <Login setUser={setUser} />}
             />
-            <Route path={"/my-profile"} component={ProfilePage} />
+            <Route
+              path={"/my-profile"}
+              component={() => <ProfilePage user={user} />}
+            />
             <Route path={"*"} component={() => <Redirect to={"/"} />} />
           </Switch>
         </React.Suspense>
