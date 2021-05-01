@@ -100,6 +100,14 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/encrypt',async(req,res)=>{
+
+// diffHell.generateKeys('base64');
+// var data=crypto.publicEncrypt(diffHell.getPublicKey('base64'),Buffer.from("secret"))
+// console.log(data.toString('base64'));
+// console.log( crypto.privateDecrypt( diffHell.getPrivateKey('base64'),Buffer.from(data,'base64')));
+// diffHell.generateKeys('base64');
+
+
     var data=await userModel.findOne({username:"prakharshriv@gmail.com"})
     var publicKey=data.publicKey,privateKey=data.privateKey
     var encrypted = crypto.publicEncrypt(publicKey, Buffer.from(req.body.value,'utf-8'));
