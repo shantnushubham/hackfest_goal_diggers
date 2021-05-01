@@ -5,7 +5,6 @@ import "../css/General.css";
 
 const SendPCashScreen = () => {
   const [scannedResult, setScannedResult] = useState(null);
-  const [qrInfo, setQrInfo] = useState(null);
 
   return (
     <>

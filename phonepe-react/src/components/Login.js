@@ -4,19 +4,17 @@ import { LoginApi } from "../apis/User";
 import "../css/General.css";
 
 const Login = (props) => {
+  const { setUser } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const history = useHistory();
 
-  let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
   useEffect(() => {
-    if (loggedInUser !== null) {
+    JSON.parse(localStorage.getItem("loggedInUser")) !== null &&
       history.push("/");
-    }
-  }, [loggedInUser, history]);
+  });
 
   const onSubmitClick = async (e) => {
     e.preventDefault();
@@ -27,6 +25,8 @@ const Login = (props) => {
         .then(({ data }) => {
           console.info(data);
           localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+          setUser(data.user);
+          history.push("/");
         })
         .catch((error) => console.error(error));
     }

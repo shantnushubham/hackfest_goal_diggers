@@ -4,6 +4,7 @@ import "../css/General.css";
 import { SignUpUserApi } from "../apis/User";
 
 const SignUp = (props) => {
+  const { user, setUser } = props;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [upiId, setUpiId] = useState("");
@@ -13,13 +14,9 @@ const SignUp = (props) => {
 
   const history = useHistory();
 
-  let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
   useEffect(() => {
-    if (loggedInUser !== null) {
-      history.push("/");
-    }
-  }, [history, loggedInUser]);
+    user !== null && history.push("/");
+  }, [history, user]);
 
   const onSubmitClick = async (e) => {
     if (
@@ -32,7 +29,7 @@ const SignUp = (props) => {
       setErrorMessage("Please fill in all the required fields.");
     }
     e.preventDefault();
-    let user = {
+    let userToAdd = {
       name,
       username: email,
       password,
@@ -40,11 +37,12 @@ const SignUp = (props) => {
       upiId,
       phone,
     };
-    await SignUpUserApi(user)
+    await SignUpUserApi(userToAdd)
       .then(({ data }) => {
         console.log(data.user);
-        localStorage.setItem("loggedInUser", JSON.stringify(data.user))
-        history.push("/")
+        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+        setUser(data.user);
+        history.push("/");
       })
       .catch((error) => {
         console.error(error);
