@@ -3,15 +3,19 @@ var router = express.Router();
 var shortid = require('shortid');
 var userModel = require('../models/user');
 var middleware = require('../helpers/middleware');
-var passport = require('passport');
-var axios = require('axios');
-const User = require('../models/user');
-const helpers = require('../helpers/index');
 
-router.post('/sender/queue',middleware.isLoggedIn,async(req,res)=>{
-
-})
+const bankServices=require('../services/bank')
 
 router.post('/receiver/queue',middleware.isLoggedIn,async(req,res)=>{
+    let transactions=req.body.transactions// 
+    let receiver=req.user.uid
+    try {
+        let upload=await bankServices.addTransactionsToLedger(transactions)
+        res.status(200).send(upload)
+    } catch (error) {
+        res.status(500).send({success:false})
+    }
 
 })
+
+module.exports=router

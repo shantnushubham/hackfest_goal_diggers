@@ -16,8 +16,8 @@ const envData = process.env;
 const userRoutes=require('./routes/users')
 const indexRoutes=require('./routes/index')
 const bankRoutes=require('./routes/bank')
-
-
+const bankServices=require('./services/bank')
+const queueRoutes=require('./routes/queueManager')
 
 try {
     connect(envData.DB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -70,8 +70,17 @@ passport.deserializeUser(User.deserializeUser());
 app.use(userRoutes)
 app.use(indexRoutes)
 app.use(bankRoutes)
+app.use(queueRoutes)
 app.get('/*', function (req, res) {
     res.send({success:true})
+});
+
+
+var cron = require('node-cron');
+
+cron.schedule('*/30 * * * * *', () => {
+  console.log('running a ledger Resolver every 30 seconds');
+  bankServices.resolveLedger()
 });
 
 const PORT = 5000;
