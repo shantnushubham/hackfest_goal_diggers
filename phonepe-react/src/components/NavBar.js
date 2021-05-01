@@ -22,7 +22,7 @@ const NavBar = (props) => {
               <div uk-dropdown={"mode: click"}>
                 <ul className={"uk-nav uk-dropdown-nav"}>
                   <li>
-                    <Link to={"/about-us"}>About Us</Link>
+                    <Link to={"/signup"}>SignUo</Link>
                   </li>
                 </ul>
               </div>
