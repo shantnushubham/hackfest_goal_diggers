@@ -43,3 +43,51 @@
 .action-block .action-mssg:hover {
   text-decoration: none;
 }
+
+.scan-qr-mssg {
+  text-align: center;
+  font-weight: 500;
+}
+
+.scan-button-box {
+  text-align: center;
+}
+
+.scan-camera {
+  margin-bottom: 10vh;
+  text-align: center;
+}
+
+.scan-button {
+  background-color: #6739b7;
+  padding: 100px 68px;
+  color: #fff;
+  margin: 10px 0;
+  border-radius: 100%;
+  font-size: large;
+  box-shadow: 0 5px 15px 16px rgb(0, 0, 0, 0.08);
+}
+
+.auth-btn-div {
+  text-align: center;
+}
+
+.auth-btn {
+  background-color: #6739b7;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.qr {
+  text-align: center;
+}
+
+.qr-upi {
+  color: white;
+  background-color: #44247c;
+  padding: 1vh 15px;
+  margin: 1vh 0;
+  border-radius: 15px;
+}
+

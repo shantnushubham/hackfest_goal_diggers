@@ -94,7 +94,7 @@ router.post('/signup', async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        res.status(200).send({success:false,message:'error in registering user'});
+        res.status(500).send({success:false,message:'error in registering user'});
     }
 
 });
