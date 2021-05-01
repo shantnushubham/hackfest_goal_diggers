@@ -24,7 +24,7 @@ const Login = (props) => {
       await LoginApi(email, password)
         .then(({ data }) => {
           console.info(data);
-          localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+          localStorage.setItem("loggedInUser", JSON.stringify(data));
           setUser(data.user);
           history.push("/");
         })
