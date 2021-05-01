@@ -19,6 +19,7 @@ const SignUp = (props) => {
   }, [history, user]);
 
   const onSubmitClick = async (e) => {
+    e.preventDefault();
     if (
       name === "" ||
       email === "" ||
@@ -28,7 +29,6 @@ const SignUp = (props) => {
     ) {
       setErrorMessage("Please fill in all the required fields.");
     }
-    e.preventDefault();
     let userToAdd = {
       name,
       username: email,
@@ -40,7 +40,7 @@ const SignUp = (props) => {
     await SignUpUserApi(userToAdd)
       .then(({ data }) => {
         console.log(data.user);
-        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+        localStorage.setItem("loggedInUser", JSON.stringify(data));
         setUser(data.user);
         history.push("/");
       })
