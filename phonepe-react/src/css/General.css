@@ -91,3 +91,8 @@
   border-radius: 15px;
 }
 
+.avail-amount {
+  color: #44247c;
+  font-size: x-large;
+  font-weight: 500;
+}

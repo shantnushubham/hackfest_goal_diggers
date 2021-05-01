@@ -1,8 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "../css/General.css";
 
-const HomePage = () => {
+const HomePage = (props) => {
+  const history = useHistory();
+  const { user } = props;
+
+  useEffect(() => {
+    if (user === null || typeof user === "undefined") {
+      history.push("/login");
+    }
+  }, [history, user]);
+
   return (
     <>
       <div className={"section"}>

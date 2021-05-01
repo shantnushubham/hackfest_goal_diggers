@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import QRCode from "react-qr-code";
 import "../css/General.css";
 
-const ProfilePage = () => {
-  const [user, setUser] = useState(null);
+const ProfilePage = (props) => {
+  const { user } = props;
   const history = useHistory();
 
   useEffect(() => {
-    let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (loggedInUser === null) {
-      history.push("/");
-    }
-    updateUser(loggedInUser);
-  }, [history]);
-
-  const updateUser = async (userStateAfterUpdate) => {
-    await setUser(userStateAfterUpdate);
-  };
+    user === null && history.push("/");
+  }, [history, user]);
 
   return user === null ? (
     "404: Some Error Occurred"

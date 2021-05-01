@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -20,20 +20,52 @@ const ProfilePage = React.lazy(() => import("./components/ProfilePage"));
 const PCashSend = React.lazy(() => import("./components/PCashSend"));
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    let loggedInUser = localStorage.getItem("loggedInUser");
+    if (user === null && loggedInUser) {
+      setUser(JSON.parse(loggedInUser).user);
+    }
+  }, [user]);
+
   return (
     <Router>
       <div>
         <React.Suspense fallback={<span uk-spinner={"ratio: 4.5"} />}>
-          <NavBar />
+          <NavBar user={user} setUser={setUser} />
           <Switch>
-            <Route path={"/"} exact component={HomePage} />
-            <Route path={"/pending"} component={PendingTransactionsScreen} />
+            <Route
+              path={"/"}
+              exact
+              component={() => <HomePage user={user} />}
+            />
+            <Route
+              path={"/pending"}
+              component={() => <PendingTransactionsScreen user={user} />}
+            />
             <Route path={"/send-offline/amount-page"} component={PCashSend} />
-            <Route path={"/offline-cash"} component={PCashScreen} />
-            <Route path={"/send-offline"} component={SendPCashScreen} />
-            <Route path={"/signup"} component={SignUp} />
-            <Route path={"/login"} component={Login} />
-            <Route path={"/my-profile"} component={ProfilePage} />
+            <Route
+              path={"/offline-cash"}
+              component={() => <PCashScreen user={user} />}
+            />
+            <Route
+              path={"/send-offline"}
+              exact
+              component={() => <SendPCashScreen user={user} />}
+            />
+            <Route
+              path={"/signup"}
+              component={() => <SignUp user={user} setUser={setUser} />}
+            />
+            <Route
+              path={"/login"}
+              component={() => <Login setUser={setUser} />}
+            />
+            <Route
+              path={"/my-profile"}
+              component={() => <ProfilePage user={user} />}
+            />
             <Route path={"*"} component={() => <Redirect to={"/"} />} />
           </Switch>
         </React.Suspense>
