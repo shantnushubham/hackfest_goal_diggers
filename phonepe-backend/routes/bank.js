@@ -37,9 +37,9 @@ router.post('/pcash', middleware.isLoggedIn, async (req, res) => {
         if(req.body.amount>bankData.amount)
             throw({success:false,message:'not enough balance'})
         let transaction=await bankServices.providePCash(req.user.uid,req.body.amount)
-        res.send({success:true,transaction:transaction.txn})
+        res.status(200).send({success:true,transaction:transaction.txn})
     } catch (error) {
-        res.send({success:false,message:error.message})
+        res.status(500).send({success:false,message:error.message})
     }
 
 })

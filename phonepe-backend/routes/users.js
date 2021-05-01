@@ -21,12 +21,16 @@ router.get('/profile', middleware.isLoggedIn, async (req, res) => {
 
 router.post('/login', passport.authenticate('local', {
     //successRedirect: resRedirect,
-    failureRedirect: '/',
+    failureRedirect: '/fail',
     failureFlash: true
 }), async (req, res) => {
     let phonepeBalance = await bankServices.findPhonePeBalance(req.user.uid)
     res.status(200).send({ user: req.user, wallet: phonepeBalance })
 });
+
+router.get("/fail", async (req, res, next) => {
+    return res.status(500).send({success: false, data: "Failed Login"})
+})
 
 router.get('/logout', function (req, res) {
     req.logout();

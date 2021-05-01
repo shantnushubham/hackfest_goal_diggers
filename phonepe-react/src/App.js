@@ -19,6 +19,7 @@ const Login = React.lazy(() => import("./components/Login"));
 const ProfilePage = React.lazy(() => import("./components/ProfilePage"));
 const PCashSend = React.lazy(() => import("./components/PCashSend"));
 const PCashReceive = React.lazy(() => import("./components/PCashReceive"));
+const AboutUs = React.lazy(() => import("./components/AboutUs"));
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -75,6 +76,7 @@ const App = () => {
               path={"/my-profile"}
               component={() => <ProfilePage user={user} />}
             />
+            <Route path={"/about-us"} component={AboutUs} />
             <Route path={"*"} component={() => <Redirect to={"/"} />} />
           </Switch>
         </React.Suspense>

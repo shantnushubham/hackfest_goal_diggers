@@ -8,7 +8,7 @@ const ProfilePage = (props) => {
   const history = useHistory();
 
   useEffect(() => {
-    user === null && history.push("/");
+    user === null && history.push("/login");
   }, [history, user]);
 
   return user === null ? (

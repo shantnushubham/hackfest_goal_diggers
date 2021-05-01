@@ -52,7 +52,7 @@ const NavBar = (props) => {
                   </li>
                   <li>
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a>About Us</a>
+                    <Link to={"/about-us"}>About Us</Link>
                   </li>
                   {showAuthPart()}
                 </ul>
@@ -62,7 +62,7 @@ const NavBar = (props) => {
           <div className={"uk-navbar-right"}>
             {user !== null && typeof user !== "undefined" && (
               <Link to={"my-profile"}>
-                <div className={"profile-nav"}>My Profile</div>
+                <div className={"profile-nav"}>Hi, {user.name}</div>
               </Link>
             )}
           </div>

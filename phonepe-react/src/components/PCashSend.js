@@ -25,7 +25,7 @@ const PCashSend = (props) => {
   if (user === null && loggedInUser) {
     user = loggedInUser.user;
   } else if (typeof loggedInUser === "undefined") {
-    history.push("/");
+    history.push("/login");
   }
 
   useEffect(() => {
@@ -109,7 +109,16 @@ const PCashSend = (props) => {
   };
 
   const createQR = () => {
-    return <QRCode value={qrData} />;
+    return (
+      <>
+        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+          <div>
+            <QRCode value={qrData} />;
+          </div>
+          <legend style={{padding: "1vh 0"}}>Show the above QR to the receiver</legend>
+        </div>
+      </>
+    );
   };
 
   const renderContent = () => {
@@ -118,7 +127,7 @@ const PCashSend = (props) => {
         <div className={"section"}>
           <h3>Enter Amount</h3>
           <h4>
-            Amount Left:{" "}
+            Balance:{" "}
             <span className={"avail-amount"}>
               {currencyFormatter.format(localWallet)}
             </span>

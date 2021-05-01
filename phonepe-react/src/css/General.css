@@ -8,17 +8,19 @@
 }
 
 .action-text {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: large;
 }
 
 .action-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
 }
 
 .action-block {
   text-align: center;
+  padding: 10px 0;
 }
 
 .action-block .icon-img-box {
@@ -54,18 +56,19 @@
 }
 
 .scan-camera {
-  margin-bottom: 10vh;
+  margin-bottom: 8vh;
   text-align: center;
 }
 
 .scan-button {
   background-color: #6739b7;
-  padding: 100px 68px;
+  padding: 100px 55px;
   color: #fff;
   margin: 10px 0;
   border-radius: 100%;
-  font-size: large;
-  box-shadow: 0 5px 15px 16px rgb(0, 0, 0, 0.08);
+  font-size: xx-large;
+  box-shadow: 0 5px 15px 16px rgba(0, 0, 0, 0.192);
+  text-transform: uppercase;
 }
 
 .auth-btn-div {
@@ -86,13 +89,13 @@
 .qr-upi {
   color: white;
   background-color: #44247c;
-  padding: 1vh 15px;
+  padding: 1vh 35px;
   margin: 1vh 0;
   border-radius: 15px;
 }
 
 .avail-amount {
   color: #44247c;
-  font-size: x-large;
+  font-size: xx-large;
   font-weight: 500;
 }

@@ -20,7 +20,7 @@ const HomePage = (props) => {
             "uk-card uk-card-default uk-card-body uk-width-expands@m card"
           }
         >
-          <h6 className={"action-text"}>Choose Action</h6>
+          <h6 className={"action-text"}>Offline Money</h6>
           <div className={"action-grid"}>
             <div className={"action-block"}>
               <Link to={"/pending"}>
@@ -33,25 +33,25 @@ const HomePage = (props) => {
             <div className={"action-block"}>
               <Link to={"/offline-cash"}>
                 <div className={"icon-img-box"}>
-                  <img src="/history.png" alt={"Check Pending Transactions"} />
+                  <img src="/dolla1r.png" alt={"Check Pending Transactions"} />
                 </div>
-                <h6 className={"action-mssg"}>Your P Cash</h6>
+                <h6 className={"action-mssg"}>Your P-Cash</h6>
               </Link>
             </div>
             <div className={"action-block"}>
               <Link to={"/send-offline"}>
                 <div className={"icon-img-box"}>
-                  <img src="/history.png" alt={"Check Pending Transactions"} />
+                  <img src="/hand1.png" alt={"Check Pending Transactions"} />
                 </div>
-                <h6 className={"action-mssg"}>Send P Cash</h6>
+                <h6 className={"action-mssg"}>Send P-Cash</h6>
               </Link>
             </div>
             <div className={"action-block"}>
               <Link to={"/receive-offline"}>
                 <div className={"icon-img-box"}>
-                  <img src="/history.png" alt={"Check Pending Transactions"} />
+                  <img src="/salary1.png" alt={"Check Pending Transactions"} />
                 </div>
-                <h6 className={"action-mssg"}>Receive P Cash </h6>
+                <h6 className={"action-mssg"}>Receive P-Cash </h6>
               </Link>
             </div>
           </div>

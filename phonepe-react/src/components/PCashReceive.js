@@ -73,15 +73,12 @@ const PCashReceive = (props) => {
         <QRScanner
           onScan={(data) => {
             if (data !== null) {
-              console.log(data);
-              if (data !== null) {
-                console.log(JSON.parse(data.text));
-                setQrData(data.text);
-                setScanMessage({
-                  success: true,
-                  data: "QR Code was successfully read.",
-                });
-              }
+              console.log(JSON.parse(data.text));
+              setQrData(data.text);
+              setScanMessage({
+                success: true,
+                data: "QR Code was successfully read.",
+              });
             }
           }}
           onError={(error) => {
@@ -127,7 +124,7 @@ const PCashReceive = (props) => {
   const renderContent = () => {
     return (
       <div className={"section"}>
-        <h1>P Cash Receive Page</h1>
+        <h1>Receive P-Cash</h1>
         {renderContentOnState()}
       </div>
     );
