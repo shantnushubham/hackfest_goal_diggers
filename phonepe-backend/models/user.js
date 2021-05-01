@@ -58,6 +58,9 @@ var User = new mongoose.Schema({
     upiId:{
         type:String,
         required:true
+    },
+    pin:{
+        type:String,
     }
 
 });

@@ -15,6 +15,7 @@ require('dotenv').config();
 const envData = process.env;
 const userRoutes=require('./routes/users')
 const indexRoutes=require('./routes/index')
+const bankRoutes=require('./routes/bank')
 
 
 
@@ -68,6 +69,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.use(userRoutes)
 app.use(indexRoutes)
+app.use(bankRoutes)
 app.get('/*', function (req, res) {
     res.send({success:true})
 });
