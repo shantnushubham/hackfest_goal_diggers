@@ -23,7 +23,7 @@ router.post('/login', passport.authenticate('local', {
     //successRedirect: resRedirect,
     failureRedirect: '/',
     failureFlash: true
-}), (req, res) => {
+}), async (req, res) => {
     let phonepeBalance = await bankServices.findPhonePeBalance(req.user.uid)
     res.status(200).send({ user: req.user, wallet: phonepeBalance })
 });
