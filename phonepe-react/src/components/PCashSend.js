@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import "../css/General.css";
 
 const PCashSend = (props) => {
+  const { user } = props;
+  const history = useHistory();
   let upiId = JSON.parse(props.location.state).upiId;
+
+  useEffect(() => {
+    user === null && history.push("/");
+  }, [user, history]);
 
   const [amount, setAmount] = useState("");
 

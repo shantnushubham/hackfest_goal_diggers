@@ -23,7 +23,7 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    let loggedInUser = localStorage.getItem("loggedInUser");
     if (user === null && loggedInUser) {
       setUser(JSON.parse(loggedInUser).user);
     }
@@ -40,10 +40,20 @@ const App = () => {
               exact
               component={() => <HomePage user={user} />}
             />
-            <Route path={"/pending"} component={PendingTransactionsScreen} />
+            <Route
+              path={"/pending"}
+              component={() => <PendingTransactionsScreen user={user} />}
+            />
             <Route path={"/send-offline/amount-page"} component={PCashSend} />
-            <Route path={"/offline-cash"} component={PCashScreen} />
-            <Route path={"/send-offline"} exact component={SendPCashScreen} />
+            <Route
+              path={"/offline-cash"}
+              component={() => <PCashScreen user={user} />}
+            />
+            <Route
+              path={"/send-offline"}
+              exact
+              component={() => <SendPCashScreen user={user} />}
+            />
             <Route
               path={"/signup"}
               component={() => <SignUp user={user} setUser={setUser} />}

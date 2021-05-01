@@ -14,7 +14,7 @@ const Login = (props) => {
   useEffect(() => {
     JSON.parse(localStorage.getItem("loggedInUser")) !== null &&
       history.push("/");
-  });
+  }, [history]);
 
   const onSubmitClick = async (e) => {
     e.preventDefault();

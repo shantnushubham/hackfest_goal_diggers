@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import QRSCanner from "react-qr-scanner";
 import "../css/General.css";
 
-const SendPCashScreen = () => {
+const SendPCashScreen = (props) => {
+  const { user } = props;
+  const history = useHistory();
   const [scannedResult, setScannedResult] = useState(null);
+
+  useEffect(() => {
+    user === null && history.push("/");
+  }, [user, history]);
 
   return (
     <>

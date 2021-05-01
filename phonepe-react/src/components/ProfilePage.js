@@ -8,11 +8,7 @@ const ProfilePage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (loggedInUser === null) {
-      history.push("/");
-    }
-    updateUser(loggedInUser);
+   
   }, [history]);
 
   const updateUser = async (userStateAfterUpdate) => {
