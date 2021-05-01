@@ -17,6 +17,7 @@ const PendingTransactionsScreen = React.lazy(() =>
 const SignUp = React.lazy(() => import("./components/SignUp"));
 const Login = React.lazy(() => import("./components/Login"));
 const ProfilePage = React.lazy(() => import("./components/ProfilePage"));
+const PCashSend = React.lazy(() => import("./components/PCashSend"));
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Switch>
             <Route path={"/"} exact component={HomePage} />
             <Route path={"/pending"} component={PendingTransactionsScreen} />
+            <Route path={"/send-offline/amount-page"} component={PCashSend} />
             <Route path={"/offline-cash"} component={PCashScreen} />
             <Route path={"/send-offline"} component={SendPCashScreen} />
             <Route path={"/signup"} component={SignUp} />

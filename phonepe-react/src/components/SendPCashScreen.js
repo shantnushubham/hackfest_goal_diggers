@@ -25,14 +25,17 @@ const SendPCashScreen = () => {
           }
           onError={(error) => console.error(error)}
         />
-        <Link
-          to={{
-            pathname: "/send-offline/amount-page",
-            state: scannedResult,
-          }}
-        >
-          <button className={"qr-upi"}>{scannedResult}</button>
-        </Link>
+        {scannedResult !== null && (
+          <Link
+            // to={"/send-offline/amount-page"}
+            to={{
+              pathname: "/send-offline/amount-page",
+              state: scannedResult,
+            }}
+          >
+            <button className={"qr-upi"}>{scannedResult}</button>
+          </Link>
+        )}
       </div>
       <div className={"scan-button-box"}>
         <button
