@@ -53,5 +53,14 @@ class bank{
             return({success:false,message:error.message})
         }
     }
+    async findPhonePeBalance(uid)
+    {
+        try {
+            let user=await phonePeBankModel.findOne({uid},{amount:1})
+            return({success:true,user})
+        } catch (error) {
+            return({success:false})
+        }
+    }
 }
 module.exports=new bank()
