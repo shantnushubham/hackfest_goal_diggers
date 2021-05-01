@@ -127,7 +127,7 @@ const PCashSend = (props) => {
         <div className={"section"}>
           <h3>Enter Amount</h3>
           <h4>
-            Balance:{" "}
+            Bank Balance:{" "}
             <span className={"avail-amount"}>
               {currencyFormatter.format(localWallet)}
             </span>

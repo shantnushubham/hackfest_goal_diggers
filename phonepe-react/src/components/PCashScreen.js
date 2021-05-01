@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { GetBalanceApi, AddPCashApi } from "../apis/Money";
+import "../css/General.css";
 
 const PCashScreen = (props) => {
   const { user } = props;
@@ -42,7 +43,7 @@ const PCashScreen = (props) => {
               ...loggedInUser.wallet,
               user: {
                 ...loggedInUser.wallet.user,
-                amount: balance - amountToAdd,
+                amount: loggedInUser.wallet.user.amount + Number(amountToAdd),
               },
             },
           })
@@ -81,7 +82,7 @@ const PCashScreen = (props) => {
 
         <div>
           <div className={"uk-card uk-card-default uk-card-small uk-card-body"}>
-            <h3 className={"uk-card-title"}>Add some P Cash:</h3>
+            <h3 className={"uk-card-title"}>Add some P-Cash:</h3>
             <form>
               <div className={"uk-margin"}>
                 <div className={"uk-form-controls"}>
