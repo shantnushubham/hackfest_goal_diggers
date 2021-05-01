@@ -79,21 +79,23 @@ class bank{
                 {$match:{resolved:false}},
                 {$group:{
                     _id:{transactionId:"$transactionId"},
-                    transactions:{$push:{transactionId:'$transactionId',receiver:'$receiver',amount:'$amount'}}
+                    transactions:{$push:{transactionId:'$transactionId',receiver:'$receiver',amount:'$amount',sender:'$sender'}}
                 }}
             ])  
+            console.log(ledgerResolve);
             let resolved=[]
             ledgerResolve.forEach(el=>{
                 if(el.transactions.length==2)
                 {
                     resolved.push({transactionId:el.transactions[0].transactionId,
                         receiver:el.transactions[0].receiver,
-                        amount:el.transactions[0].amount
+                        amount:el.transactions[0].amount,
+                        sender:el.transactions[0].sender
                     })
 
                 }
             })
-            this.creditMoney(ledgerResolve)
+            this.creditMoney(resolved)
 
         } catch (error) {
             console.log(error);
@@ -101,10 +103,17 @@ class bank{
     }
     async creditMoney(receiverList){
         try {
+            console.log(receiverList);
             receiverList.forEach(async (el)=>{
                 await ledgerModel.updateMany({transactionId:el.transactionId},{resolved:true})
                 let getData=await bankModel.findOne({upiId:el.receiver})
                 let updateData=await bankModel.findOneAndUpdate({upiId:el.receiver},{amount:getData.amount+el.amount})
+                let transaction=await transactionModel.create({sender:el.sender,
+                    receiver:el.receiver,
+                    amount:el.amount,
+                    transactionId:el.transactionId,
+                    pbankTxn:true
+                })
             })
             console.log("updated",receiverList);
         } catch (error) {

@@ -6,15 +6,16 @@ var middleware = require('../helpers/middleware');
 
 const bankServices=require('../services/bank')
 
-router.post('/receiver/queue',middleware.isLoggedIn,async(req,res)=>{
-    let transactions=req.body.transactions// 
-    let receiver=req.user.uid
+router.post('/queue',async(req,res)=>{
+    let transactions=req.body// 
+    console.log(transactions);
     try {
         let upload=await bankServices.addTransactionsToLedger(transactions)
         res.status(200).send(upload)
     } catch (error) {
         res.status(500).send({success:false})
     }
+    
 
 })
 
