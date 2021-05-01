@@ -18,6 +18,7 @@ const SignUp = React.lazy(() => import("./components/SignUp"));
 const Login = React.lazy(() => import("./components/Login"));
 const ProfilePage = React.lazy(() => import("./components/ProfilePage"));
 const PCashSend = React.lazy(() => import("./components/PCashSend"));
+const PCashReceive = React.lazy(() => import("./components/PCashReceive"));
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -44,7 +45,10 @@ const App = () => {
               path={"/pending"}
               component={() => <PendingTransactionsScreen user={user} />}
             />
-            <Route path={"/send-offline/amount-page"} component={PCashSend} />
+            <Route
+              path={"/send-offline/amount-page"}
+              component={() => <PCashSend user={user} />}
+            />
             <Route
               path={"/offline-cash"}
               component={() => <PCashScreen user={user} />}
@@ -52,7 +56,12 @@ const App = () => {
             <Route
               path={"/send-offline"}
               exact
-              component={() => <SendPCashScreen user={user} />}
+              component={() => <SendPCashScreen />}
+            />
+            <Route
+              path={"/receive-offline"}
+              exact
+              component={() => <PCashReceive user={user} />}
             />
             <Route
               path={"/signup"}

@@ -46,6 +46,14 @@ const HomePage = (props) => {
                 <h6 className={"action-mssg"}>Send P Cash</h6>
               </Link>
             </div>
+            <div className={"action-block"}>
+              <Link to={"/receive-offline"}>
+                <div className={"icon-img-box"}>
+                  <img src="/history.png" alt={"Check Pending Transactions"} />
+                </div>
+                <h6 className={"action-mssg"}>Receive P Cash </h6>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

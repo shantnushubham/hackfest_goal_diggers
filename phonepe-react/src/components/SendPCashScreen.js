@@ -4,13 +4,13 @@ import QRSCanner from "react-qr-scanner";
 import "../css/General.css";
 
 const SendPCashScreen = (props) => {
-  const { user } = props;
+  // const { user } = props;
   const history = useHistory();
   const [scannedResult, setScannedResult] = useState(null);
 
-  useEffect(() => {
-    user === null && history.push("/");
-  }, [user, history]);
+  // useEffect(() => {
+  //   user === null && history.push("/");
+  // }, [user, history]);
 
   return (
     <>
@@ -35,7 +35,7 @@ const SendPCashScreen = (props) => {
             // to={"/send-offline/amount-page"}
             to={{
               pathname: "/send-offline/amount-page",
-              state: scannedResult,
+              state: JSON.parse(scannedResult),
             }}
           >
             <button className={"qr-upi"}>{scannedResult}</button>
