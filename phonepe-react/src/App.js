@@ -16,10 +16,9 @@ const PendingTransactionsScreen = React.lazy(() =>
 );
 const SignUp = React.lazy(() => import("./components/SignUp"));
 const Login = React.lazy(() => import("./components/Login"));
+const ProfilePage = React.lazy(() => import("./components/ProfilePage"));
 
 const App = () => {
-  let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
   return (
     <Router>
       <div>
@@ -32,6 +31,7 @@ const App = () => {
             <Route path={"/send-offline"} component={SendPCashScreen} />
             <Route path={"/signup"} component={SignUp} />
             <Route path={"/login"} component={Login} />
+            <Route path={"/my-profile"} component={ProfilePage} />
             <Route path={"*"} component={() => <Redirect to={"/"} />} />
           </Switch>
         </React.Suspense>

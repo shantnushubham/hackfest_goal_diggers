@@ -78,3 +78,16 @@
   color: #fff;
   border-radius: 15px;
 }
+
+.qr {
+  text-align: center;
+}
+
+.qr-upi {
+  color: white;
+  background-color: #44247c;
+  padding: 1vh 15px;
+  margin: 1vh 0;
+  border-radius: 15px;
+}
+

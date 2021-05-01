@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import QRSCanner from "react-qr-scanner";
 import "../css/General.css";
 
 const SendPCashScreen = () => {
   const [scannedResult, setScannedResult] = useState(null);
-  //
+  const [qrInfo, setQrInfo] = useState(null);
+
   return (
     <>
       <div className={"scan-camera"}>
@@ -15,12 +17,22 @@ const SendPCashScreen = () => {
             scannedResult === null
               ? (data) => {
                   console.log(data);
-                  setScannedResult(data);
+                  if (data !== null) {
+                    setScannedResult(data.text);
+                  }
                 }
               : null
           }
           onError={(error) => console.error(error)}
         />
+        <Link
+          to={{
+            pathname: "/send-offline/amount-page",
+            state: scannedResult,
+          }}
+        >
+          <button className={"qr-upi"}>{scannedResult}</button>
+        </Link>
       </div>
       <div className={"scan-button-box"}>
         <button
