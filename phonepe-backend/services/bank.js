@@ -108,6 +108,8 @@ class bank{
                 await ledgerModel.updateMany({transactionId:el.transactionId},{resolved:true})
                 let getData=await bankModel.findOne({upiId:el.receiver})
                 let updateData=await bankModel.findOneAndUpdate({upiId:el.receiver},{amount:getData.amount+el.amount})
+                let phonepeBankUser=await phonePeBankModel.findOne({upiId:el.sender})
+                let updatePhonepe=await phonePeBankModel.findOneAndUpdate({upiId:el.sender},{amount:phonepeBankUser.amount-el.amount})
                 let transaction=await transactionModel.create({sender:el.sender,
                     receiver:el.receiver,
                     amount:el.amount,
