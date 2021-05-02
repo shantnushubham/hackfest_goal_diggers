@@ -22,13 +22,9 @@ node app.js
 cd ./phonepe-react
 npm start
 ```
-
-
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
+## Plan
+![Plan](https://user-images.githubusercontent.com/35377007/116804298-586eab00-ab3b-11eb-9335-02047bdd786d.jpg "Plan")
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-![Plan](https://user-images.githubusercontent.com/35377007/116804298-586eab00-ab3b-11eb-9335-02047bdd786d.jpg "Plan")
+
