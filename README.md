@@ -20,7 +20,7 @@ before starting server add the following to your .env file
 cd ./phonepe-backend
 node app.js
 cd ./phonepe-react
-npm run start
+npm start
 ```
 
 
