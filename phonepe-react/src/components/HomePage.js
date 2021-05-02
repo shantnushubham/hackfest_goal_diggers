@@ -27,7 +27,7 @@ const HomePage = (props) => {
                 <div className={"icon-img-box"}>
                   <img src="/history.png" alt={"Check Pending Transactions"} />
                 </div>
-                <h6 className={"action-mssg"}>Pending...</h6>
+                <h6 className={"action-mssg"}>Pending Txns.</h6>
               </Link>
             </div>
             <div className={"action-block"}>

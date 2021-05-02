@@ -115,7 +115,9 @@ const PCashSend = (props) => {
           <div>
             <QRCode value={qrData} />;
           </div>
-          <legend style={{padding: "1vh 0"}}>Show the above QR to the receiver</legend>
+          <legend style={{ padding: "1vh 0" }}>
+            Show the above QR to the receiver
+          </legend>
         </div>
       </>
     );
@@ -127,7 +129,7 @@ const PCashSend = (props) => {
         <div className={"section"}>
           <h3>Enter Amount</h3>
           <h4>
-            Bank Balance:{" "}
+            P-Cash Balance:{" "}
             <span className={"avail-amount"}>
               {currencyFormatter.format(localWallet)}
             </span>

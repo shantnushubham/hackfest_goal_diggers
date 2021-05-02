@@ -73,7 +73,7 @@ const PCashScreen = (props) => {
       <div uk-grid={""} className={"uk-child-width-expands@s"}>
         <div>
           <div className={"uk-card uk-card-default uk-card-small uk-card-body"}>
-            <h3 className={"uk-card-title"}>Balance:</h3>
+            <h3 className={"uk-card-title"}>Bank Balance:</h3>
             <span className={"avail-amount"}>
               {currencyFormatter.format(balance)}
             </span>
