@@ -1,6 +1,6 @@
 # Hackfest- PhonePe Offline Transaction System
 
-Oflline transaction system created to solve PhonePe's problem statement for Hackfest 2021
+Offline transaction system created to solve PhonePe's problem statement for HackFest 2021 at IIT (ISM) Dhanbad during May 2021.
 
 ## Installation
 
@@ -14,7 +14,7 @@ npm install
 ```
 
 ## Run the project
-before starting server add the following to your .env file 
+Before starting server add the following to your .env file 
 **DB=mongodb://localhost:27017/hackfest**
 ```bash
 cd ./phonepe-backend
