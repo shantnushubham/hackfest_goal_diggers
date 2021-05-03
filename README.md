@@ -1,4 +1,4 @@
-# Hackfest- PhonePe Offline Transaction System
+# HackFest- PhonePe Offline Transaction System
 
 Offline transaction system created to solve PhonePe's problem statement for HackFest 2021 at IIT (ISM) Dhanbad during May 2021.
 
